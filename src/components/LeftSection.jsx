@@ -24,8 +24,8 @@ const LeftSection = () => {
           ...question.incorrect_answers.map((answer) => ({ text: answer, correct: false }))
         ].sort(() => Math.random() - 0.5)
       }
-    )).sort((a, b) => {
-      return sort.indexOf(a.difficulty) - sort.indexOf(b.difficulty);
+    )).sort((question) => {
+      return sort.indexOf(question.difficulty);
     })
     setQuestions(filtered) 
   }
