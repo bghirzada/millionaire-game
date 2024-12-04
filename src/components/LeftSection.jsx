@@ -6,29 +6,8 @@ import { GameContext } from '../context/GameProvider';
 
 const LeftSection = () => {
 
-  const {step, questions, setQuestions, nextQuestion, resetGame} = useContext(GameContext)
-  
-  useEffect(() => {
-    getQuestionsAndSort()
-  }, [])
+  const { step, questions, setQuestions, nextQuestion, resetGame } = useContext(GameContext)
 
-  const sort = ['easy', 'medium', 'hard']
-
-  const getQuestionsAndSort = async() => {
-    const questions = await getQuestions()
-    const filtered = questions?.results.map((question) => (
-      {
-        question: question.question,
-        answers: [
-          { text: question.correct_answer, correct: true },
-          ...question.incorrect_answers.map((answer) => ({ text: answer, correct: false }))
-        ].sort(() => Math.random() - 0.5)
-      }
-    )).sort((question) => {
-      return sort.indexOf(question.difficulty);
-    })
-    setQuestions(filtered) 
-  }
 
 
   return (

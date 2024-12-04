@@ -1,9 +1,11 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import ScoreBoard from './ScoreBoard'
 import moneyPyramid from '../data/MoneyPyramid'
+import { GameContext } from '../context/GameProvider'
 
-const Header = ({ step }) => {
+const Header = () => {
     const [showScore, setShowScore] = useState(false)
+    const { step } = useContext(GameContext)
 
     return (
         <div className='fixed top-0 w-screen  flex justify-center '>

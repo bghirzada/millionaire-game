@@ -8,11 +8,10 @@ import { GameContext } from '../context/GameProvider';
 
 const GamePage = () => {
 
-  const { step } = useContext(GameContext)
 
   return (
     <div className='filter backdrop-blur-md relative z-10 w-full h-full '>
-      <Header step={step} />
+      <Header />
       <div className='w-fit h-fit absolute top-24 left-1/2 transform -translate-x-1/2 rounded-full border-2 border-sky-950'><Timer /></div>
       <div className='grid grid-cols-2'>
         <LeftSection />
